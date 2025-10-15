@@ -50,7 +50,7 @@ main {
   right: 10px;
 }
 .menu-offcanva {
-  background-color: yellow;
+  background-color: white;
   position: fixed;
   top: 0;
   right: -200px;
