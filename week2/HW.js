@@ -1,6 +1,6 @@
 console.clear();
 
-// Task 1
+// // Task 1
 let characterList = [
   { position: [0, 0], direction: "left", character: "辛巴" },
   { position: [2, 1], direction: "right", character: "丁滿" },
@@ -102,18 +102,14 @@ function func2(ss, strat, end, criteria) {
   }
 
   // 用filter找到，符合criteria的服務
-  // 用reduce找出filter篩選出來的服務中，最接近value的值(取距離絕對值後前後比較)
-  let bestCriteria = services
+  // 用sort找出filter篩選出來的服務中，最接近value的值(取距離絕對值後前後比較)，並依順序排列成陣列
+  let validServices = services
     .filter(function (item) {
       return operatorChange(item[cr], value);
     })
-    .reduce(function (pre, curr) {
-      if (Math.abs(value - pre[cr]) < Math.abs(value - curr[cr])) {
-        return pre;
-      } else {
-        return curr;
-      }
-    }, 0);
+    .sort(function (a, b) {
+      return Math.abs(value - a[cr]) - Math.abs(value - b[cr]);
+    });
 
   //找到整體時間段
   let totalTimeList = [];
@@ -121,24 +117,27 @@ function func2(ss, strat, end, criteria) {
     totalTimeList.push(i);
   }
 
-  //先判斷找到一樣name的服務，在判斷時間段有沒有重疊，沒有就把預定時間補上bookedTime
-  services.forEach(function (item) {
-    if (bestCriteria.name == item.name) {
-      const hasConflict = totalTimeList.some(function (time) {
-        return item.bookedTime.includes(time);
-      });
-      if (hasConflict) {
-        console.log("sorry");
-      } else {
-        // 將預定時間放進服務裡，以便下一組客人做對照(看是否衝突)
-        totalTimeList.forEach(function (i) {
-          item.bookedTime.push(i);
-        });
-        console.log(item.name);
-        // console.log(item);
+  let booked = false;
+  for (const best of validServices) {
+    const currService = services.find(function (service) {
+      return service.name == best.name;
+    });
+    const hasConflict = totalTimeList.some(function (time) {
+      return currService.bookedTime.includes(time);
+    });
+    if (!hasConflict) {
+      //將預定時間放進服務裡，以便下一組客人做對照(看是否衝突)
+      for (let i of totalTimeList) {
+        currService.bookedTime.push(i);
       }
+      console.log(currService.name);
+      booked = true;
+      return;
     }
-  });
+  }
+  if (!booked) {
+    console.log("Sorry");
+  }
 }
 
 func2(services, 15, 17, "c>=800");
@@ -148,6 +147,7 @@ func2(services, 15, 18, "r<= 4.5");
 func2(services, 16, 18, "r>= 4");
 func2(services, 13, 17, "name=S1");
 func2(services, 8, 9, "c<= 1500");
+func2(services, 8, 9, "c<=1500");
 
 // Task 3
 function func3(index) {

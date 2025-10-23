@@ -97,33 +97,43 @@ def func2(ss, strat, end, criteria):
         if(operatorChange(item[cr], value)):
             filterResult.append(item)
 
-    # 找到最適合的
+    # 依據適配程度排序，如果是name就選第一個
     if(cr in ["c", "r"]):
-        preDiffer = float("inf")
-        for item in filterResult:
-            currDiff = abs(item[cr]-value)
-            if(currDiff < preDiffer):
-                preDiffer = currDiff
-                bestCriteria = item
+        filterResult.sort(key = lambda item : abs(value-item[cr]))
+        validServices = filterResult
     else:
-        bestCriteria = filterResult[0]
+        validServices = [filterResult[0]]
 
-    # 找到整體時間段
+    #找到整體時間段
     totalTimeList = []
     for x in range(strat, end+1):
         totalTimeList.append(x)
 
-    hasConflict = False
-    for x in totalTimeList:
-        if(x in bestCriteria["bookedTime"]):
-            hasConflict = True
+    currService = []
+    booked = False
+    for validItem in validServices:
+
+        for serviceItem in services:
+            if(validItem["name"] == serviceItem["name"]):
+                currService = serviceItem
+                break
+
+        hasConflict = False
+        for time in totalTimeList:
+            if(time in currService["bookedTime"]):
+                hasConflict = True
+                break
+        
+        if(not hasConflict):
+            booked = True
+            for time in totalTimeList:
+                currService["bookedTime"].append(time)
             break
-    if(hasConflict):
-        print("Sorry")
+    if(booked):
+        print(currService["name"])
     else:
-        for x in totalTimeList:
-            bestCriteria["bookedTime"].append(x)
-        print(bestCriteria["name"])
+        print("Sorry")
+
 
 func2(services, 15, 17, "c>=800")
 func2(services, 11, 13, "r<= 4")
@@ -132,6 +142,7 @@ func2(services, 15, 18, "r<= 4.5")
 func2(services, 16, 18, "r>= 4")
 func2(services, 13, 17, "name=S1")
 func2(services, 8, 9, "c<= 1500")
+func2(services, 8, 9, "c<=1500")
 
 # Task 3
 def func3(index):
