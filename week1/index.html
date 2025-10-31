@@ -39,8 +39,16 @@
     </header>
     <main>
       <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 col-sm-12">
+        <ul class="row" id="barCard-ul">
+          <template id="template-barCard">
+            <li class="">
+              <div class="bar-card d-flex align-items-center">
+                <img src="" alt="圖片" class="bar-img me-20" />
+                <p></p>
+              </div>
+            </li>
+          </template>
+          <!-- <li class="col-12 col-md-6 col-sm-12">
             <div class="bar-card d-flex align-items-center">
               <img
                 src="https://images.unsplash.com/photo-1760340642096-fa5ccff5b8e4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2532"
@@ -49,8 +57,8 @@
               />
               <p>promotion1</p>
             </div>
-          </div>
-          <div class="col-8 col-md-6 col-sm-12">
+          </li>
+          <li class="col-8 col-md-6 col-sm-12">
             <div class="bar-card d-flex align-items-center">
               <img
                 src="https://images.unsplash.com/photo-1760340642096-fa5ccff5b8e4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2532"
@@ -59,8 +67,8 @@
               />
               <p>promotion1</p>
             </div>
-          </div>
-          <div class="col-4 col-md-12 col-sm-12">
+          </li>
+          <li class="col-4 col-md-12 col-sm-12">
             <div class="bar-card d-flex align-items-center">
               <img
                 src="https://images.unsplash.com/photo-1760340642096-fa5ccff5b8e4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2532"
@@ -69,12 +77,21 @@
               />
               <p>promotion1</p>
             </div>
-          </div>
-        </div>
+          </li> -->
+        </ul>
       </div>
 
-      <div class="row">
-        <div class="col-4 col-md-3 col-sm-12 d-flex">
+      <ul class="row" id="card-ul">
+        <template id="template-card">
+          <li class="">
+            <div class="card">
+              <span class="material-symbols-rounded star"> star </span>
+              <img src="" alt="圖片" />
+              <p></p>
+            </div>
+          </li>
+        </template>
+        <!-- <li class="col-4 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -83,8 +100,8 @@
             />
             <p>title1</p>
           </div>
-        </div>
-        <div class="col-2 col-md-3 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -93,8 +110,8 @@
             />
             <p>title2</p>
           </div>
-        </div>
-        <div class="col-2 col-md-3 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -103,8 +120,8 @@
             />
             <p>title3</p>
           </div>
-        </div>
-        <div class="col-2 col-md-3 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -113,8 +130,8 @@
             />
             <p>title4</p>
           </div>
-        </div>
-        <div class="col-2 col-md-3 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -123,8 +140,8 @@
             />
             <p>title5</p>
           </div>
-        </div>
-        <div class="col-4 col-md-3 col-sm-12 d-flex">
+        </li>
+        <li class="col-4 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -133,8 +150,8 @@
             />
             <p>title6</p>
           </div>
-        </div>
-        <div class="col-2 col-md-3 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -143,8 +160,8 @@
             />
             <p>title7</p>
           </div>
-        </div>
-        <div class="col-2 col-md-3 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-3 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -153,8 +170,8 @@
             />
             <p>title8</p>
           </div>
-        </div>
-        <div class="col-2 col-md-6 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-6 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -163,8 +180,8 @@
             />
             <p>title9</p>
           </div>
-        </div>
-        <div class="col-2 col-md-6 col-sm-12 d-flex">
+        </li>
+        <li class="col-2 col-md-6 col-sm-12 d-flex">
           <div class="card">
             <span class="material-symbols-rounded star"> star </span>
             <img
@@ -173,10 +190,12 @@
             />
             <p>title10</p>
           </div>
-        </div>
+        </li> -->
+      </ul>
+      <div class="d-flex justify-content-center mb-20">
+        <button type="button" class="button">Load More</button>
       </div>
     </main>
-
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>

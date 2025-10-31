@@ -85,6 +85,13 @@ main {
 .overlay.show {
   visibility: visible;
 }
+.button {
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+.button.hidden {
+  display: none;
+}
 
 @media (max-width: 1200px) {
   main {
