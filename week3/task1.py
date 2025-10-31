@@ -8,11 +8,20 @@ with urllib.request.urlopen(en_url) as en_res:
     en_data = json.load(en_res)["list"]
 
 # 中英hotel資訊
+# hotel_info = []
+# for zh_item, en_item in zip(zh_data, en_data):
+#     hotel_info.append([
+#         zh_item["旅宿名稱"], en_item["hotel name"], zh_item["地址"], en_item["address"], zh_item["電話或手機號碼"], zh_item["房間數"]
+# ])
+
 hotel_info = []
-for zh_item, en_item in zip(zh_data, en_data):
-    hotel_info.append([
-        zh_item["旅宿名稱"], en_item["hotel name"], zh_item["地址"], en_item["address"], zh_item["電話或手機號碼"], zh_item["房間數"]
-])
+for zh_item in zh_data:
+    for en_item in en_data:
+        if zh_item["_id"] == en_item["_id"]:
+            hotel_info.append([
+                zh_item["旅宿名稱"], en_item["hotel name"], zh_item["地址"], en_item["address"], zh_item["電話或手機號碼"], zh_item["房間數"]
+            ])
+print(hotel_info)
 
 # 中英hotel資訊寫入csv
 import csv
