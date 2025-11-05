@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #223344;
+  padding: 32px;
+}
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 24px;
+}
+p,
+a {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+button {
+  width: fit-content;
+  padding: 4px 16px;
+  font-size: 16px;
+}
+
+label {
+  font-size: 20px;
+}
+input {
+  width: 180px;
+  height: 24px;
+}
+input.check {
+  width: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+.flex-colunm {
+  display: flex;
+  flex-direction: column;
+}
+.justify-content-center {
+  justify-content: flex-end;
+}
+.align-items-center {
+  align-items: center;
+}
+.mb-12 {
+  margin-bottom: 12px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mr-8 {
+  margin-right: 8px;
+}
+.w-100 {
+  width: 100%;
+}
+.py-60 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.border-bottom {
+  border-bottom: 1px solid #dddddd;
+}
